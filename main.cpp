@@ -12,6 +12,7 @@ float cy = 0.0f;
 float cz = 0.0f;
 const int width = 28;
 const int height = 14;
+int framerate = 60;
 //30 * 15 seems to be the limit here before it stops clearing the console. could circumvent this by rendering in chunks
 typedef struct{
     float x,y;
@@ -103,7 +104,7 @@ int main(){
         processbuffer();
         renderscreen();
         
-        usleep(16666);
+        usleep((1000/framerate)*1000);
         framecount++;
     }while(1>0);
     return 0;
