@@ -10,8 +10,8 @@ unsigned long framecount;
 float cx = 0.0f;
 float cy = 0.0f;
 float cz = 0.0f;
-const int width = 28;
-const int height = 14;
+const int width = 20;
+const int height = 10;
 int framerate = 60;
 //30 * 15 seems to be the limit here before it stops clearing the console. could circumvent this by rendering in chunks
 typedef struct{
@@ -25,8 +25,9 @@ char chars[] = {'.','#'};
 std::vector<int> buffer; // display buffer
 std::vector<point*> points;
 std::vector<point3d*> point3ds;
-void isnum(string input){
-  std::vector<int>::iterator it = std::find_if(string.begin(),string.end(),
+bool isnum(std::string input){
+  auto it = std::find_if(input.begin(),input.end(),isalpha);
+    return !(it == input.end());
 }
 int getplace(float x, float y){
     return floor(x)+floor(y)*width;
